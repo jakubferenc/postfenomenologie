@@ -1,8 +1,9 @@
 {
   "meta": {
-    "title": "nový web UPRAVIT!!!",
-    "description": "nějaký krátký a rozumný popis webu, UPRAVIT!!!",
-    "tagline": "nejake, tagy, pridej, sem, UPRAVIT!!!",
+    "title": "postfenomenologie.cz",
+    "description": "Web první české konference postfenomenologie a filozofie technologií",
+    "tagline": "postfenomenologie, mysl a média",
+    "keywords": "postfenomenologie, filosofie, technika, Don Ihde, Peter-Paul Verbeek, Jakub Albert Ferenc",
     "url": ""
   },
   "social": {
@@ -15,7 +16,7 @@
       "ID": ""
     },
     "googleTagManager": {
-      "ID": ""
+      "ID": "GTM-W99WQ39"
     },
     "googleSiteVerification": "",
     "msvalidate": ""

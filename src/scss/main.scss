@@ -66,7 +66,13 @@ h1, h2 {font-family: sans-serif;}
 
 /****************************************************/
 /* :MAIN: */
-
+.poster {
+  background-image: url(../images/konference-2020.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 80%;
+  height: 100vh;
+}
 
 /****************************************************/
 
