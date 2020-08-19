@@ -1,0 +1,85 @@
+// Include pug components and partials
+
+doctype html
+html(lang="cs")
+  head
+    block meta
+      meta(charset="utf-8")
+      meta(http-equiv="X-UA-Compatible" content="IE=edge")
+      meta(name="viewport" content="width=device-width, initial-scale=1")
+
+    block title
+      title
+
+    block favicon
+      link(rel="icon" type="image/png" href="/assets/img/favicon-32x32.png" sizes="32x32")
+      link(rel="icon" type="image/png" href="/assets/img/favicon-16x16.png" sizes="16x16")
+      link(rel="apple-touch-icon" href="/assets/img/apple-touch-icon-57x57.png")
+      link(rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-touch-icon-76x76.png")
+      link(rel="apple-touch-icon" sizes="120x120" href="/assets/img/apple-touch-icon-120x120.png")
+      link(rel="apple-touch-icon" sizes="152x152" href="/assets/img/apple-touch-icon-152x152.png")
+
+      <meta name="google-site-verification" content="" />
+      <meta name="msvalidate.01" content="" />
+
+      <!-- SEO -->
+      <meta name="description" content=""/>
+      <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+      <link rel="canonical" href="https://www.postfenomenologie.cz/" />
+      <link rel="next" href="https://www.postfenomenologie.cz/" />
+      <meta property="og:locale" content="cs_CZ" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="postfenomenologie.cz | postfenomenologie, mysl a média" />
+      <meta property="og:description" content="postfenomenologie, mysl a média" />
+      <meta property="og:url" content="https://www.postfenomenologie.cz/" />
+      <meta property="og:site_name" content="postfenomenologie.cz | postfenomenologie, mysl a média" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:description" content="postfenomenologie, mysl a média" />
+      <meta name="twitter:title" content="postfenomenologie.cz | postfenomenologie, mysl a média" />
+      <meta name="twitter:site" content="@jakub_ferenc" />
+      <meta name="msvalidate.01" content="" />
+      <meta name="google-site-verification" content="TUISU3Si652d93sr6HaA9gQvZX8fK2aDi3VyfjPvVw8" />
+      <script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.postfenomenologie.cz/#website","url":"https://www.postfenomenologie.cz/","name":"postfenomenologie.cz | postfenomenologie, mysl a média","publisher":{"@id":"https://www.postfenomenologie.cz/#/schema/person/"},"potentialAction":{"@type":"SearchAction","target":"https://www.postfenomenologie.cz/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"CollectionPage","@id":"https://www.postfenomenologie.cz/#webpage","url":"https://www.postfenomenologie.cz/","inLanguage":"cs-CZ","name":"postfenomenologie.cz | postfenomenologie, mysl a média","isPartOf":{"@id":"https://www.postfenomenologie.cz/#website"},"about":{"@id":"https://www.postfenomenologie.cz/#/schema/person/"},"description":"postfenomenologie, mysl a média"}]}</script>
+      <!-- / SEO -->
+
+    - let bodyClass = 'index';
+
+    block vars
+
+
+    block css
+      <!-- inject:css -->
+      link(rel="stylesheet" href="/assets/css/main.css?" + Math.floor(Date.now() / 1000))
+      <!-- endinject -->
+
+    block js
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      script(async src="https://www.googletagmanager.com/gtag/js?id=")
+      script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '');
+
+
+    block header
+
+    body(class=bodyClass)
+
+      block head
+        include ./header.pug
+
+      main
+        block main
+
+      block foot
+        include ./footer.pug
+
+
+      block javascript
+
+        script(src="/assets/js/app.build.js?" + Math.floor(Date.now() / 1000))
+
+

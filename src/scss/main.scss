@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+@import '../../node_modules/bulma/bulma.sass';
+/* fonts */
+/* end fonts */
+@import "lib/all";
+
+
+div, textarea {box-sizing: border-box;}
+
+html {
+  font-size: 12px;
+  @include from($widescreen) {
+    font-size: $base-font-size;
+  }
+}
+
+body {
+  font-family: 'EB Garamond', serif;
+  font-weight: 200;
+  color: $primary-color;
+  line-height: 1.7;
+  padding: 30px;
+  margin: 0;
+  font-size: 150%;
+
+  @include from($widescreen) {
+
+  }
+
+}
+
+strong {
+  font-weight: 400;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+h1, h2 {font-family: sans-serif;}
+
+/* :CUSTOM CLASSES: */
+
+
+/* :GRID: */
+
+/****************************************************/
+/* :LAYOUT: */
+
+
+
+
+/****************************************************/
+
+
+
+/****************************************************/
+/* :HEADER: */
+
+
+
+/****************************************************/
+
+
+/****************************************************/
+/* :MAIN: */
+
+
+/****************************************************/
+
+/****************************************************/
+/* :POSTS: */
+
+
+/****************************************************/
+
+
+/****************************************************/
+/* :FOOTER: */
+
+
+
+/****************************************************/

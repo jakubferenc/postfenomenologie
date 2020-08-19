@@ -1,0 +1,14 @@
+{
+  "deploy" : true,
+  "proxy" : "https://jakubferenc.cz",
+  "globs" : [ "!.git", "dist/**/*", "php/**/*", "dist/.htaccess"],
+  "base": ".",
+  "ftp" : {
+    "host" : "wellnessfood.savana-hosting.cz",
+    "user" : "assemblage",
+    "password" : "A$$ervaz258FTP!",
+    "dir" : "/assemblage.cz/jakubferenc",
+    "time" : 5000
+  }
+}
+
