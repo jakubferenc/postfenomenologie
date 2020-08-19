@@ -285,7 +285,7 @@ gulp.task('js', async () => {
 
 
 // IMAGES
-gulp.task('images', () => gulp.src('src/images/**/*.{jpg,png,svg,gif}')
+gulp.task('images', () => gulp.src('src/images/**/*.{jpg,png,svg,gif,pdf}')
     .pipe(gulp.dest('dist/assets/images')));
 
 gulp.task('mergeJson', () => {
@@ -325,7 +325,7 @@ gulp.task('watch', () => {
   gulp.watch('src/js/**/*.js', gulp.series('js', 'reload'));
   gulp.watch(['site.webmanifest'], gulp.series('pug', 'reload'));
   gulp.watch('src/scss/**/*.scss', gulp.series('sass', 'reload'));
-  gulp.watch(['src/images/**/*.+(png|jpg|jpeg|gif|svg)'], gulp.series('sass', 'reload'));
+  gulp.watch(['src/images/**/*.+(png|jpg|jpeg|gif|svg|pdf)'], gulp.series('sass', 'reload'));
 
 });
 

@@ -4,7 +4,7 @@
   "description": "The `dev` branch is the main development branch. Merge all accepted feature branches to the `dev` branch or make pull/merge requests. If feature branch was merged, delete that branch. Keep updated your feature branches with current `dev` status.",
   "main": "gulpfile.js",
   "scripts": {
-    "build": "gulp build",
+    "build": "npm install & gulp build",
     "start": "npm install && gulp",
     "update": "npm update && npm outdated"
   },

@@ -4,6 +4,8 @@
 /* fonts */
 /* end fonts */
 @import "lib/all";
+@import "fonts";
+
 
 
 div, textarea {box-sizing: border-box;}
@@ -16,10 +18,10 @@ html {
 }
 
 body {
-  font-family: 'EB Garamond', serif;
+  font-family: 'Times New Roman', serif;
   font-weight: 200;
   color: $primary-color;
-  line-height: 1.7;
+  line-height: 1.2;
   padding: 30px;
   margin: 0;
   font-size: 150%;
@@ -37,9 +39,11 @@ strong {
 a {
   color: #000;
   text-decoration: none;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
 }
 
-h1, h2 {font-family: sans-serif;}
+h1, h2 {font-size: 4.5rem; line-height: 1; letter-spacing: -1px;}
 
 /* :CUSTOM CLASSES: */
 
@@ -66,13 +70,36 @@ h1, h2 {font-family: sans-serif;}
 
 /****************************************************/
 /* :MAIN: */
-.poster {
-  background-image: url(../images/konference-2020.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 80%;
-  height: 100vh;
+.main-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column-reverse;
+  @include from($widescreen) {
+    flex-direction: row;
+  }
+
 }
+.poster {
+  height: auto;
+  width: 100%;
+  @include from($widescreen) {
+    width: 60%;
+  }
+
+}
+.title {margin-bottom: 2em;}
+.info {
+
+  margin-bottom: 1rem;
+
+  @include from($widescreen) {
+    margin-left: 3rem;
+    margin-bottom: 0;
+  }
+}
+p {margin-bottom: 1rem; font-size: 2rem}
+.cfp {letter-spacing: .5em; margin: 1rem 0}
 
 /****************************************************/
 
