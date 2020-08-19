@@ -252,15 +252,12 @@ gulp.task('reload', () => {
 gulp.task('pug', () => {
   return gulp.src(['src/views/**/*.pug'])
     .pipe(
-      $.data(() => JSON.parse(fs.readFileSync('./data/data.json')))
+      $.data(() => JSON.parse(fs.readFileSync('./data/data_merged.json')))
     )
     .pipe($.pug(config.pug))
     .pipe(gulp.dest('dist/'))
     .pipe(browserSync.stream());
   });
-
-gulp.watch(['src/views/**/*.pug'], gulp.series('pug', 'reload'));
-gulp.watch('nastaveni.json', gulp.series('pug', 'reload'));
 
 // SASS
 gulp.task('sass', () => {
@@ -277,14 +274,12 @@ gulp.task('sass', () => {
       stream: true,
     }));
 });
-gulp.watch('src/scss/**/*.scss', gulp.series('sass', 'reload'));
 
 
 gulp.task('js', async () => {
   const bundle = await rollup(config.rollup.bundle);
   bundle.write(config.rollup.output);
 });
-gulp.watch('src/js/**/*.js', gulp.series('js', 'reload'));
 
 
 
@@ -293,7 +288,7 @@ gulp.task('images', () => gulp.src('src/images/**/*.{jpg,png,svg,gif}')
     .pipe(gulp.dest('dist/assets/images')));
 
 gulp.task('mergeJson', () => {
-  return gulp.src('./data/**/*.json')
+  return gulp.src('./nastaveni.json', './data/**/*.json')
   .pipe($.mergeJson({
     fileName: 'data_merged.json',
   }))
@@ -322,15 +317,20 @@ gulp.task('deployFtp', () => {
 
 });
 
-gulp.watch(['site.webmanifest'], gulp.series('pug'));
-gulp.watch('src/js/**/*.js', gulp.series('js', browserSync.reload));
-gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
-gulp.watch(['src/views/**/*.pug'], gulp.series('pug'));
-gulp.watch('src/*.html', gulp.series(browserSync.reload));
-gulp.watch(['src/images/**/*.+(png|jpg|jpeg|gif|svg)'], gulp.series('images'));
+gulp.task('watch', () => {
+
+  gulp.watch(['src/views/**/*.pug'], gulp.series('pug', 'reload'));
+  gulp.watch('nastaveni.json', gulp.series('pug', 'reload'));
+  gulp.watch('src/js/**/*.js', gulp.series('js', 'reload'));
+  gulp.watch(['site.webmanifest'], gulp.series('pug', 'reload'));
+  gulp.watch('src/scss/**/*.scss', gulp.series('sass', 'reload'));
+  gulp.watch(['src/images/**/*.+(png|jpg|jpeg|gif|svg)'], gulp.series('sass', 'reload'));
+
+});
 
 // GULP:build
 gulp.task('build', gulp.series('clean', 'mergeJson', 'pug', 'sass', 'js', 'images', 'copyToDist'));
 
+
 // GULP:default
-gulp.task('default', gulp.series('build'));
+gulp.task('default', gulp.series('build', 'watch'));
