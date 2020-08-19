@@ -53,6 +53,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-ssh": "^0.7.0",
     "gulp-template": "^5.0.0",
+    "plumber": "^0.4.8",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
     "rollup": "^1.26.3",

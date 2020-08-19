@@ -1,5 +1,8 @@
 // Include pug components and partials
 
+- console.log(data);
+- console.log(meta);
+
 doctype html
 html(lang="cs")
   head
@@ -19,28 +22,28 @@ html(lang="cs")
       link(rel="apple-touch-icon" sizes="120x120" href="/assets/img/apple-touch-icon-120x120.png")
       link(rel="apple-touch-icon" sizes="152x152" href="/assets/img/apple-touch-icon-152x152.png")
 
-      <meta name="google-site-verification" content="" />
-      <meta name="msvalidate.01" content="" />
+      meta(name='google-site-verification' content=`${meta.googleSiteVerification}`)
+      meta(name='msvalidate.01' content=`${meta.msvalidate}`)
 
-      <!-- SEO -->
-      <meta name="description" content=""/>
-      <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
-      <link rel="canonical" href="https://www.postfenomenologie.cz/" />
-      <link rel="next" href="https://www.postfenomenologie.cz/" />
-      <meta property="og:locale" content="cs_CZ" />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content="postfenomenologie.cz | postfenomenologie, mysl a média" />
-      <meta property="og:description" content="postfenomenologie, mysl a média" />
-      <meta property="og:url" content="https://www.postfenomenologie.cz/" />
-      <meta property="og:site_name" content="postfenomenologie.cz | postfenomenologie, mysl a média" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:description" content="postfenomenologie, mysl a média" />
-      <meta name="twitter:title" content="postfenomenologie.cz | postfenomenologie, mysl a média" />
-      <meta name="twitter:site" content="@jakub_ferenc" />
-      <meta name="msvalidate.01" content="" />
-      <meta name="google-site-verification" content="TUISU3Si652d93sr6HaA9gQvZX8fK2aDi3VyfjPvVw8" />
-      <script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.postfenomenologie.cz/#website","url":"https://www.postfenomenologie.cz/","name":"postfenomenologie.cz | postfenomenologie, mysl a média","publisher":{"@id":"https://www.postfenomenologie.cz/#/schema/person/"},"potentialAction":{"@type":"SearchAction","target":"https://www.postfenomenologie.cz/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"CollectionPage","@id":"https://www.postfenomenologie.cz/#webpage","url":"https://www.postfenomenologie.cz/","inLanguage":"cs-CZ","name":"postfenomenologie.cz | postfenomenologie, mysl a média","isPartOf":{"@id":"https://www.postfenomenologie.cz/#website"},"about":{"@id":"https://www.postfenomenologie.cz/#/schema/person/"},"description":"postfenomenologie, mysl a média"}]}</script>
-      <!-- / SEO -->
+
+      // SEO
+      meta(name="description" content=`${meta.description}`)
+      meta(name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1")
+      link(rel="canonical" href="#{meta.title}")
+      meta(property="og:locale" content="cs_CZ")
+      meta(property="og:type" content="website")
+      meta(property="og:title" content=`${meta.title} | ${meta.tagline}`)
+      meta(property="og:description" content=`${meta.description}`)
+      meta(property="og:url" content=`${meta.url}`)
+      meta(property="og:site_name" content=`${meta.title} | ${meta.tagline}`)
+      meta(name="twitter:card" content="summary_large_image")
+      meta(name="twitter:description" content="#{meta.tagline}")
+      meta(name="twitter:title" content="#{meta.title} | #{meta.tagline}")
+      meta(name="twitter:site" content=`${social.twitter.username}`)
+      script.schema-graph(type="application/ld+json").
+        {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"#{meta.tagline}#website","url":"#{meta.tagline}","name":"#{meta.title} | #{meta.tagline}","publisher":{"@id":"#{meta.tagline}#/schema/person/"},"potentialAction":{"@type":"SearchAction","target":"#{meta.tagline}?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"CollectionPage","@id":"#{meta.tagline}#webpage","url":"#{meta.tagline}","inLanguage":"cs-CZ","name":"#{meta.title} | #{meta.tagline}","isPartOf":{"@id":"#{meta.tagline}#website"},"about":{"@id":"#{meta.tagline}#/schema/person/"},"description":"#{meta.tagline}"}]}
+      // / SEO
+
 
     - let bodyClass = 'index';
 
@@ -61,7 +64,7 @@ html(lang="cs")
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', '');
+        gtag('config', `${marketing.googleTagManager.id}`);
 
 
     block header

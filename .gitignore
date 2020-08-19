@@ -2,11 +2,14 @@
 **/node_modules
 **/tmp
 **/dist
+**/temp
 **/local
 **/npm-debug.log
 **/reports
 **/bower_components
 **/asset_manifest.json
+**/resources
+**/_resources
 
 
 # Logs and databases #
@@ -48,7 +51,7 @@ ehthumbs.db
 **/*.codekit
 
 # Data
-data/data_merged.json
+
 
 # Wordpress #
 wordpress

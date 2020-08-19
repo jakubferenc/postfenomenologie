@@ -1,11 +1,24 @@
 {
   "meta": {
-    "title": "",
-    "tagline": ""
+    "title": "nový web UPRAVIT!!!",
+    "description": "nějaký krátký a rozumný popis webu, UPRAVIT!!!",
+    "tagline": "nejake, tagy, pridej, sem, UPRAVIT!!!",
+    "url": ""
+  },
+  "social": {
+    "twitter": {
+      "username": "@jakub_ferenc"
+    }
   },
   "marketing": {
     "googleAnalytics": {
       "ID": ""
-    }
+    },
+    "googleTagManager": {
+      "ID": ""
+    },
+    "googleSiteVerification": "",
+    "msvalidate": ""
+
   }
 }

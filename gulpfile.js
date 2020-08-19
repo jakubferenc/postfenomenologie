@@ -180,7 +180,7 @@ const config = {
   },
   // PUG
   pug: {
-    pretty: true
+    pretty: false
   },
   // ROLLUP
   rollup: {
@@ -232,7 +232,7 @@ config.pug.locals = {};
 // ==========================================
 // CLEAN
 gulp.task('clean', (done) => {
-  return del(['dist'], done);
+  return del(['dist', 'temp'], done);
 });
 
 gulp.task('clean-dist-article', (done) => {
@@ -250,9 +250,10 @@ gulp.task('reload', () => {
 
 // pug:index & pug:home (pug -> html)
 gulp.task('pug', () => {
-  return gulp.src(['src/views/**/*.pug'])
+  return gulp.src(['src/views/**/*.pug', '!src/views/_partials/**/*.pug'])
+    .pipe($.plumber())
     .pipe(
-      $.data(() => JSON.parse(fs.readFileSync('./data/data_merged.json')))
+      $.data(() => JSON.parse(fs.readFileSync('./temp/data_merged.json')))
     )
     .pipe($.pug(config.pug))
     .pipe(gulp.dest('dist/'))
@@ -292,7 +293,7 @@ gulp.task('mergeJson', () => {
   .pipe($.mergeJson({
     fileName: 'data_merged.json',
   }))
-  .pipe(gulp.dest('./data/'));
+  .pipe(gulp.dest('./temp/'));
 });
 
 gulp.task('copyToDist', () => {

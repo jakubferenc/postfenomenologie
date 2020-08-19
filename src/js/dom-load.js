@@ -3,7 +3,7 @@ import {
   __addClass,
   __hasClass,
   __toggleClass,
-} from './lib/utils';
+} from './lib/utils-js/utils';
 
 
 const domLoad = () => {
