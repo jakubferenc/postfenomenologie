@@ -297,7 +297,7 @@ gulp.task('mergeJson', () => {
 });
 
 gulp.task('copyToDist', () => {
-  return gulp.src('.htaccess')
+  return gulp.src(['.htaccess', './copy-to-dist/**/*'])
   .pipe(gulp.dest('./dist/'));
 });
 
