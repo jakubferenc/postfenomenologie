@@ -2,7 +2,7 @@
   "deploy" : true,
   "proxy" : "https://postfenomenologie.cz",
   "globs" : [ "!.git", "dist/**/*", "php/**/*", "dist/.htaccess"],
-  "base": ".",
+  "base": "./dist",
   "ftp" : {
     "host" : "wellnessfood.savana-hosting.cz",
     "user" : "assemblage",
