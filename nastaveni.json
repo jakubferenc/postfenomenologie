@@ -13,10 +13,10 @@
   },
   "marketing": {
     "googleAnalytics": {
-      "ID": ""
+      "id": ""
     },
     "googleTagManager": {
-      "ID": "GTM-W99WQ39"
+      "id": "GTM-W99WQ39"
     },
     "googleSiteVerification": "",
     "msvalidate": ""

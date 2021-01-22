@@ -47,8 +47,8 @@ html(lang="cs")
       meta(property="og:url" content=`${meta.url}`)
       meta(property="og:site_name" content=`${meta.title} | ${meta.tagline}`)
       meta(name="twitter:card" content="summary_large_image")
-      meta(name="twitter:description" content="#{meta.tagline}")
-      meta(name="twitter:title" content="#{meta.title} | #{meta.tagline}")
+      meta(name="twitter:description" content=`${meta.tagline}`)
+      meta(name="twitter:title" content=`${meta.title} | ${meta.tagline}`)
       meta(name="twitter:site" content=`${social.twitter.username}`)
       script.schema-graph(type="application/ld+json").
         {"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"#{meta.tagline}#website","url":"#{meta.tagline}","name":"#{meta.title} | #{meta.tagline}","publisher":{"@id":"#{meta.tagline}#/schema/person/"},"potentialAction":{"@type":"SearchAction","target":"#{meta.tagline}?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"CollectionPage","@id":"#{meta.tagline}#webpage","url":"#{meta.tagline}","inLanguage":"cs-CZ","name":"#{meta.title} | #{meta.tagline}","isPartOf":{"@id":"#{meta.tagline}#website"},"about":{"@id":"#{meta.tagline}#/schema/person/"},"description":"#{meta.tagline}"}]}
@@ -67,14 +67,15 @@ html(lang="cs")
 
     block js
 
+      - const googleTagManagerID = marketing.googleTagManager.id
       <!-- Global site tag (gtag.js) - Google Analytics -->
       script(async src=`https://www.googletagmanager.com/gtag/js?id=${marketing.googleTagManager.id}`)
       script.
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
-        gtag('config', `${marketing.googleTagManager.id}`);
+        - const googleTagId = '#{marketing.googleTagManager.id}';
+        gtag('config', googleTagId);
 
 
     block header
