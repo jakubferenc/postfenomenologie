@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "postfenomenologie.cz",
-    "description": "Web první české konference postfenomenologie a filozofie technologií",
+    "description": "První česká studentská konference postfenomenologie a filozofie technologií",
     "tagline": "postfenomenologie, mysl a média",
     "keywords": "postfenomenologie, filosofie, technika, Don Ihde, Peter-Paul Verbeek, Jakub Albert Ferenc",
     "url": ""
@@ -13,7 +13,7 @@
   },
   "marketing": {
     "googleAnalytics": {
-      "id": ""
+      "id": "UA-44145604-14"
     },
     "googleTagManager": {
       "id": "GTM-W99WQ39"

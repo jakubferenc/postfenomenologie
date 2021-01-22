@@ -1,4 +1,3 @@
-// Include pug components and partials
 
 doctype html
 html(lang="cs")
@@ -9,7 +8,7 @@ html(lang="cs")
       meta(name="viewport" content="width=device-width, initial-scale=1")
 
     block title
-      title
+      title #{meta.title} — #{meta.description}
 
     block favicon
       link(rel='apple-touch-icon' sizes='57x57' href='/apple-icon-57x57.png')
@@ -67,18 +66,15 @@ html(lang="cs")
 
     block js
 
-      - const googleTagManagerID = marketing.googleTagManager.id
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      script(async src=`https://www.googletagmanager.com/gtag/js?id=${marketing.googleTagManager.id}`)
+      // Global site tag (gtag.js) - Google Analytics
+      script(async='' src='https://www.googletagmanager.com/gtag/js?id=UA-44145604-14')
       script.
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag(){
+        dataLayer.push(arguments);
+        };
         gtag('js', new Date());
-        - const googleTagId = '#{marketing.googleTagManager.id}';
-        gtag('config', googleTagId);
-
-
-    block header
+        gtag('config', 'UA-44145604-14');
 
     body(class=bodyClass)
 

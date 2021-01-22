@@ -250,15 +250,16 @@ gulp.task('reload', () => {
 
 // pug:index & pug:home (pug -> html)
 gulp.task('pug', () => {
-  return gulp.src(['src/views/**/*.pug', '!src/views/_partials/**/*.pug'])
-    .pipe($.plumber())
+  return gulp.src(['src/views/**/*.pug'])
     .pipe(
       $.data(() => JSON.parse(fs.readFileSync('./temp/data_merged.json')))
     )
     .pipe($.pug(config.pug))
     .pipe(gulp.dest('dist/'))
-    .pipe(browserSync.stream());
-  });
+    .pipe(browserSync.reload({
+      stream: true,
+    }));
+});
 
 // SASS
 gulp.task('sass', () => {
@@ -280,6 +281,11 @@ gulp.task('sass', () => {
 gulp.task('js', async () => {
   const bundle = await rollup(config.rollup.bundle);
   bundle.write(config.rollup.output);
+
+  browserSync.reload({
+    stream: true,
+  });
+
 });
 
 
@@ -289,7 +295,7 @@ gulp.task('images', () => gulp.src('src/images/**/*.{jpg,png,svg,gif,pdf}')
     .pipe(gulp.dest('dist/assets/images')));
 
 gulp.task('mergeJson', () => {
-  return gulp.src('./nastaveni.json', './data/**/*.json')
+  return gulp.src('./nastaveni.json', './data/**/*.json', '!./data/data_merge.json')
   .pipe($.mergeJson({
     fileName: 'data_merged.json',
   }))
@@ -320,12 +326,12 @@ gulp.task('deployFtp', () => {
 
 gulp.task('watch', () => {
 
-  gulp.watch(['src/views/**/*.pug'], gulp.series('pug', 'reload'));
-  gulp.watch('nastaveni.json', gulp.series('pug', 'reload'));
-  gulp.watch('src/js/**/*.js', gulp.series('js', 'reload'));
-  gulp.watch(['site.webmanifest'], gulp.series('pug', 'reload'));
-  gulp.watch('src/scss/**/*.scss', gulp.series('sass', 'reload'));
-  gulp.watch(['src/images/**/*.+(png|jpg|jpeg|gif|svg|pdf)'], gulp.series('sass', 'reload'));
+  gulp.watch(['src/views/**/*.pug'], gulp.series('pug'));
+  gulp.watch('nastaveni.json', gulp.series('pug'));
+  gulp.watch('src/js/**/*.js', gulp.series('js'));
+  gulp.watch(['site.webmanifest'], gulp.series('pug'));
+  gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
+  gulp.watch(['src/images/**/*.+(png|jpg|jpeg|gif|svg|pdf)'], gulp.series('sass'));
 
 });
 

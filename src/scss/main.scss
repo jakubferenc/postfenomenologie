@@ -43,7 +43,9 @@ a {
   padding-bottom: 5px;
 }
 
-h1, h2 {font-size: 4.5rem; line-height: 1; letter-spacing: -1px;}
+h1 {font-size: 4.5rem; line-height: .9; letter-spacing: -1px;}
+h2 {font-size: 3.5rem; line-height: .9; letter-spacing: -1px;}
+
 
 /* :CUSTOM CLASSES: */
 
@@ -62,7 +64,20 @@ h1, h2 {font-size: 4.5rem; line-height: 1; letter-spacing: -1px;}
 
 /****************************************************/
 /* :HEADER: */
+.main-header {
+}
 
+.main-nav {
+  display: flex;
+  justify-content: center;
+
+  a {
+
+    margin-left: 1rem;
+
+    &:first-child {margin-left: 0;}
+  }
+}
 
 
 /****************************************************/
@@ -84,7 +99,7 @@ h1, h2 {font-size: 4.5rem; line-height: 1; letter-spacing: -1px;}
   height: auto;
   width: 100%;
   @include from($widescreen) {
-    width: 60%;
+    width: 50%;
   }
 
 }
@@ -99,14 +114,53 @@ h1, h2 {font-size: 4.5rem; line-height: 1; letter-spacing: -1px;}
   }
 }
 p {margin-bottom: 1rem; font-size: 2rem}
-.cfp {letter-spacing: .5em; margin: 1rem 0}
+.cfp {font-style: italic; margin: 1rem 0}
 
 /****************************************************/
 
 /****************************************************/
 /* :POSTS: */
 
+.videos-container {
 
+  margin-top: 1rem;
+
+  @include from($widescreen) {
+
+  }
+
+  .video-item {
+    margin-bottom: 1rem;
+
+    @include from($widescreen) {
+      width: 80%;
+    }
+
+    .video-title {
+      margin-bottom: 0.25em;
+    }
+  }
+
+}
+
+.video {
+  background: #f0f0f5;
+
+  @include from($widescreen) {
+    height: 500px;
+  }
+
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
 /****************************************************/
 
 
